@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.emergentes;
 
 import java.io.IOException;
@@ -17,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jin
  */
-@WebServlet(name = "edad_persona", urlPatterns = {"/edad_persona"})
-public class edad_persona extends HttpServlet {
+@WebServlet(name = "DolaresBolivianos", urlPatterns = {"/DolaresBolivianos"})
+public class DolaresBolivianos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +32,10 @@ public class edad_persona extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet edad_persona</title>");            
+            out.println("<title>Servlet DolaresBolivianos</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet edad_persona at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DolaresBolivianos at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,31 +53,28 @@ public class edad_persona extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      //  processRequest(request, response);}
+        //processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
-        out.println("<title>Servlet edad_persona</title>");            
+        out.println("<title>Servlet DolaresBolivianos</title>");            
         out.println("</head>");
         out.println("<body>");
-        out.println("<h2>Calcular su edad a partir de fu fecha de nacimiento</h2>");
-        out.println("<br><br>");
+        out.println("<h1>Dolares a Bolivianos</h1>");
         out.println("<form action='' method='post'>");
-            out.println("Fecha");
-            out.println("<input type='number' name='dia' required>");
-            out.println("<input type='number' name='mes' required>");
-            out.println("<input type='number' name='ano' required>");
-            
+            out.println("Dolares: ");
+            out.println("<input type='number' name='dolar' value='0'>");
+            out.println("<br>");
+            out.println("<h1>Bolivianos a Dolares</h1>");
+            out.println("Bolivianos");
+            out.println("<input type='number' name='boliviano' value='0'>");
             out.println("<br>");
             out.println("<input type='submit' value='Enviar'>");
         out.println("</form>");
         out.println("</body>");
-        out.println("</html>");    
-        
-        
-      
+        out.println("</html>");
     }
 
     /**
@@ -96,44 +88,25 @@ public class edad_persona extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        String dia = request.getParameter("dia");
-        String mes = request.getParameter("mes");
-        String ano = request.getParameter("ano");
-        int numEntero = Integer.parseInt(ano);
-        
-        //String fecha = request.getParameter("fecha");
+       // processRequest(request, response);
+        int dolar = Integer.parseInt(request.getParameter("dolar"));
+        int bo = Integer.parseInt(request.getParameter("boliviano"));
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try{
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LeeParametros</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Los datos recibitos son</h1>");
-            if(ano != null)
+            if(dolar != 0)
             {
-                out.println("Sus Edad es: <br>");
-                int edad=2020-numEntero;
-                out.print(edad);
-                
+                double dol=dolar*6.9;
+                out.println("Dolares en bolivianos es: "+dol+"<br>");
             }
-            else
+            if(bo != 0)
             {
-                out.println("No hay datos para mostrar! ");
+                double bol=bo/6.9;
+                out.println("Bolivianos en dolares es: "+bol+"<br>");
             }
-            out.println("</body>");
-            out.println("</html>");
-        }finally{out.close();}
+        }
+        finally{out.close();}
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

@@ -15,6 +15,9 @@
         <header><h1>Practca N°1</h1></header>
         <ul>
             <li><a href="edad_persona">1-.</a></li>
+            <li><a href="DolaresBolivianos">2-.</a></li>
+            <li><a href="SRMD">3-.</a></li>
+            <li><a href="">1-.</a></li>
         </ul>
     </body>
 </html>
